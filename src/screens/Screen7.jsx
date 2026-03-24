@@ -56,7 +56,7 @@ export default function Screen7() {
           </div>
         </div>
 
-        <div className="space-y-2 mb-4">
+        <div className="space-y-2 mb-2">
           {[
             ['Zoho CRM Rebuild', '$6,000'],
             ['Website & AEO Build', '$14,000'],
@@ -70,6 +70,12 @@ export default function Screen7() {
               <span className="text-white font-medium">{price}</span>
             </div>
           ))}
+        </div>
+
+        <div className="bg-green-400/5 rounded-lg px-3 py-2 border border-green-400/10 mb-4">
+          <p className="text-[11px] text-green-400 font-medium">
+            Upgrade available: Replace Zoho with a custom CRM — save $2,200+ in Year 1
+          </p>
         </div>
 
         <div className="border-t border-white/10 pt-3 mb-4">
