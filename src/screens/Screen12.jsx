@@ -40,10 +40,10 @@ export default function Screen12() {
         </h3>
         <div className="space-y-3">
           {[
-            { when: 'Contract signed', amount: '$12,000', what: 'Configurator + Zoho build begins immediately' },
-            { when: 'Week 3-4', amount: '$8,000', what: 'Configurator delivered + Zoho complete' },
-            { when: 'Week 5', amount: '$7,000', what: 'Website build begins' },
-            { when: 'Week 9-10', amount: '$5,000', what: 'Website live + lead pipeline + marketing automation' },
+            { when: 'Contract signed', amount: '$16,000', what: 'Website + CRM + Configurator build begins immediately' },
+            { when: 'Day 22', amount: '$8,000', what: 'Configurator delivered + CRM live' },
+            { when: 'Day 45', amount: '$5,000', what: 'Website live + lead pipeline active' },
+            { when: 'Day 65', amount: '$3,000', what: 'Marketing automation complete — full platform operational' },
             { when: 'Month 4+', amount: '$4,000/mo', what: 'Full platform retainer begins' },
           ].map((row, i) => (
             <div key={i} className="py-2 border-b border-white/5 last:border-0">
