@@ -1,6 +1,15 @@
-import { Check, Star } from 'lucide-react'
+import { useState } from 'react'
+import { Check, Star, Database, BarChart3 } from 'lucide-react'
 
 export default function Screen7() {
+  const [customCRM, setCustomCRM] = useState(false)
+
+  const crmLabel = customCRM ? 'Custom Bay State CRM' : 'Zoho CRM Rebuild'
+  const crmPrice = customCRM ? 10000 : 6000
+  const buildTotal = 14000 + 7000 + 5000 + crmPrice // website + leads + marketing + CRM
+  const year1 = buildTotal + (4000 * 9) // 9 months retainer
+  const year2 = 4000 * 12
+
   return (
     <div className="max-w-lg mx-auto px-5">
       <div className="text-center mb-6">
@@ -22,7 +31,7 @@ export default function Screen7() {
         <div className="space-y-2 mb-4 text-sm text-body">
           <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-cyan-accent" /> 50% deposit to start: $15,000</div>
           <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-cyan-accent" /> 50% on delivery: $15,000</div>
-          <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-cyan-accent" /> Delivery: 3-4 weeks</div>
+          <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-cyan-accent" /> Delivery: 22 business days</div>
           <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-cyan-accent" /> Complete configurator MVP</div>
           <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-cyan-accent" /> 5 cabinet lines, live pricing</div>
           <div className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-cyan-accent" /> Admin panel, mobile responsive</div>
@@ -56,9 +65,50 @@ export default function Screen7() {
           </div>
         </div>
 
-        <div className="space-y-2 mb-2">
+        {/* CRM Toggle */}
+        <div className="bg-white/5 rounded-xl p-3 border border-white/10 mb-4">
+          <p className="text-[10px] text-muted uppercase tracking-wide font-bold mb-2">Choose your CRM</p>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              onClick={() => setCustomCRM(false)}
+              className={`flex items-center gap-2 rounded-lg p-3 border-2 transition-all text-left ${
+                !customCRM
+                  ? 'border-cyan-accent bg-cyan-accent/5'
+                  : 'border-white/10 bg-transparent'
+              }`}
+            >
+              <BarChart3 className={`w-4 h-4 shrink-0 ${!customCRM ? 'text-cyan-accent' : 'text-muted'}`} />
+              <div>
+                <p className="text-xs font-semibold">Zoho Rebuild</p>
+                <p className="text-sm font-bold">$6,000</p>
+              </div>
+            </button>
+            <button
+              onClick={() => setCustomCRM(true)}
+              className={`flex items-center gap-2 rounded-lg p-3 border-2 transition-all text-left ${
+                customCRM
+                  ? 'border-gold bg-gold/5'
+                  : 'border-white/10 bg-transparent'
+              }`}
+            >
+              <Database className={`w-4 h-4 shrink-0 ${customCRM ? 'text-gold' : 'text-muted'}`} />
+              <div>
+                <p className="text-xs font-semibold">Custom CRM</p>
+                <p className="text-sm font-bold">$10,000</p>
+              </div>
+            </button>
+          </div>
+          {customCRM && (
+            <p className="text-[10px] text-gold mt-2 leading-snug">
+              No Zoho subscription. Direct configurator integration. You own everything.
+            </p>
+          )}
+        </div>
+
+        {/* Line items */}
+        <div className="space-y-2 mb-4">
           {[
-            ['Zoho CRM Rebuild', '$6,000'],
+            [crmLabel, `$${crmPrice.toLocaleString()}`],
             ['Website & AEO Build', '$14,000'],
             ['Lead Scraping Pipeline', '$7,000'],
             ['Marketing Automation', '$5,000'],
@@ -72,16 +122,10 @@ export default function Screen7() {
           ))}
         </div>
 
-        <div className="bg-gold/5 rounded-lg px-3 py-2 border border-gold/10 mb-4">
-          <p className="text-[11px] text-gold font-medium">
-            Add-on available: Custom CRM — replace Zoho entirely for +$5,000
-          </p>
-        </div>
-
         <div className="border-t border-white/10 pt-3 mb-4">
           <div className="flex justify-between text-sm">
             <span className="text-body">Build Total</span>
-            <span className="text-white font-bold">$32,000</span>
+            <span className="text-white font-bold transition-all">${buildTotal.toLocaleString()}</span>
           </div>
           <div className="flex justify-between text-sm mt-1">
             <span className="text-body">Monthly Retainer (Month 4+)</span>
@@ -92,11 +136,11 @@ export default function Screen7() {
         <div className="bg-white/5 rounded-lg p-3 mb-3">
           <div className="flex justify-between text-sm">
             <span className="text-muted">Year 1 Investment</span>
-            <span className="text-gold font-bold">~$68,000</span>
+            <span className="text-gold font-bold transition-all">~${year1.toLocaleString()}</span>
           </div>
           <div className="flex justify-between text-sm mt-1">
             <span className="text-muted">Year 2</span>
-            <span className="text-gold font-bold">$48,000</span>
+            <span className="text-gold font-bold">${year2.toLocaleString()}</span>
           </div>
         </div>
 
