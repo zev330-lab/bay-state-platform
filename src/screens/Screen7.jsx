@@ -72,9 +72,9 @@ export default function Screen7() {
           ))}
         </div>
 
-        <div className="bg-green-400/5 rounded-lg px-3 py-2 border border-green-400/10 mb-4">
-          <p className="text-[11px] text-green-400 font-medium">
-            Upgrade available: Replace Zoho with a custom CRM — save $2,200+ in Year 1
+        <div className="bg-gold/5 rounded-lg px-3 py-2 border border-gold/10 mb-4">
+          <p className="text-[11px] text-gold font-medium">
+            Add-on available: Custom CRM — replace Zoho entirely for +$5,000
           </p>
         </div>
 
