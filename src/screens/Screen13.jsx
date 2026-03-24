@@ -1,17 +1,24 @@
 import { useState } from 'react'
-import { Star, Send, CheckCircle } from 'lucide-react'
+import { Star, Send, CheckCircle, Database, BarChart3 } from 'lucide-react'
 
 const FORMSPREE = 'https://formspree.io/f/xvzbbrpb'
 const MAILTO_FALLBACK = 'mailto:zev330@gmail.com?subject=Bay%20State%20Digital%20Platform%20%E2%80%94%20Commitment%20from%20Zion'
 
 export default function Screen13() {
   const [selected, setSelected] = useState(null)
+  const [customCRM, setCustomCRM] = useState(false)
   const [name, setName] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
 
-  const deposit = selected === 'A' ? '$15,000' : selected === 'B' ? '$12,000' : '—'
+  const crmPrice = customCRM ? 10000 : 6000
+  const buildTotal = customCRM ? 36000 : 32000
+  const deposit = selected === 'A' ? '$15,000' : selected === 'B' ? `$${(16000 + (customCRM ? 4000 : 0)).toLocaleString()}` : '—'
   const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+
+  const optionBLabel = customCRM
+    ? `Option B — Full Digital Platform + Custom CRM: $${buildTotal.toLocaleString()} build + $4,000/month`
+    : `Option B — Full Digital Platform: $${buildTotal.toLocaleString()} build + $4,000/month`
 
   const handleSubmit = async () => {
     if (!selected || !name.trim()) return
@@ -23,7 +30,8 @@ export default function Screen13() {
       date: today,
       selectedOption: selected === 'A'
         ? 'Option A — Kitchen Configurator: $30,000'
-        : 'Option B — Full Digital Platform: $32,000 build + $4,000/month',
+        : optionBLabel,
+      crmChoice: selected === 'B' ? (customCRM ? 'Custom CRM ($10,000)' : 'Zoho Rebuild ($6,000)') : 'N/A',
       depositAmount: deposit,
     }
 
@@ -36,7 +44,6 @@ export default function Screen13() {
       if (!res.ok) throw new Error('Formspree error')
       setSubmitted(true)
     } catch {
-      // Fallback to mailto
       const body = Object.entries(payload)
         .filter(([k]) => k !== '_subject')
         .map(([k, v]) => `${k}: ${v}`)
@@ -115,12 +122,54 @@ export default function Screen13() {
               {selected === 'B' && <div className="w-2.5 h-2.5 rounded-full bg-gold" />}
             </div>
             <div>
-              <h3 className="text-base font-bold">Option B — Full Digital Platform: $32,000 + $4,000/mo</h3>
+              <h3 className="text-base font-bold">Option B — Full Digital Platform: ${buildTotal.toLocaleString()} + $4,000/mo</h3>
               <p className="text-sm text-muted mt-1">Everything — including the configurator FREE. Your complete digital transformation.</p>
             </div>
           </div>
         </button>
       </div>
+
+      {/* CRM toggle — only shows when Option B selected */}
+      {selected === 'B' && (
+        <div className="bg-card rounded-xl p-4 border border-white/10 mb-6">
+          <p className="text-[10px] text-muted uppercase tracking-wide font-bold mb-2">Choose your CRM</p>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              onClick={() => setCustomCRM(false)}
+              className={`flex items-center gap-2 rounded-lg p-3 border-2 transition-all text-left ${
+                !customCRM
+                  ? 'border-cyan-accent bg-cyan-accent/5'
+                  : 'border-white/10 bg-transparent'
+              }`}
+            >
+              <BarChart3 className={`w-4 h-4 shrink-0 ${!customCRM ? 'text-cyan-accent' : 'text-muted'}`} />
+              <div>
+                <p className="text-xs font-semibold">Zoho Rebuild</p>
+                <p className="text-sm font-bold">$6,000</p>
+              </div>
+            </button>
+            <button
+              onClick={() => setCustomCRM(true)}
+              className={`flex items-center gap-2 rounded-lg p-3 border-2 transition-all text-left ${
+                customCRM
+                  ? 'border-gold bg-gold/5'
+                  : 'border-white/10 bg-transparent'
+              }`}
+            >
+              <Database className={`w-4 h-4 shrink-0 ${customCRM ? 'text-gold' : 'text-muted'}`} />
+              <div>
+                <p className="text-xs font-semibold">Custom CRM</p>
+                <p className="text-sm font-bold">$10,000</p>
+              </div>
+            </button>
+          </div>
+          {customCRM && (
+            <p className="text-[10px] text-gold mt-2 leading-snug">
+              No Zoho subscription. Direct configurator integration. You own everything.
+            </p>
+          )}
+        </div>
+      )}
 
       {/* Form */}
       <div className="bg-card rounded-2xl p-5 border border-white/10 mb-6">
@@ -144,11 +193,23 @@ export default function Screen13() {
           <div>
             <label className="text-xs text-muted uppercase tracking-wide block mb-1.5">Selected Option</label>
             <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-body">
-              {selected === 'A' ? 'Option A — Kitchen Configurator' : selected === 'B' ? 'Option B — Full Digital Platform' : 'Select an option above'}
+              {selected === 'A'
+                ? 'Option A — Kitchen Configurator'
+                : selected === 'B'
+                ? `Option B — Full Platform ${customCRM ? '+ Custom CRM' : '(Zoho)'}`
+                : 'Select an option above'}
             </div>
           </div>
           <div>
-            <label className="text-xs text-muted uppercase tracking-wide block mb-1.5">Deposit Amount Due Today</label>
+            {selected === 'B' && (
+              <>
+                <label className="text-xs text-muted uppercase tracking-wide block mb-1.5">Build Total</label>
+                <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm font-semibold text-white mb-4">
+                  ${buildTotal.toLocaleString()}
+                </div>
+              </>
+            )}
+            <label className="text-xs text-muted uppercase tracking-wide block mb-1.5">Deposit Due Today</label>
             <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm font-semibold text-white">
               {deposit}
             </div>
