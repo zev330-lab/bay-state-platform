@@ -15,24 +15,52 @@ export default function ScreenComparison() {
 
       {/* CURRENT — the chat bot */}
       <div className="bg-card rounded-2xl p-5 border border-red-500/20 mb-4">
-        <div className="flex items-center gap-2 mb-3">
-          <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center">
-            <MessageSquare className="w-4 h-4 text-red-400" />
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center">
+              <MessageSquare className="w-4 h-4 text-red-400" />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-red-400">What You Have Today</h3>
+              <p className="text-[10px] text-muted">AI Cabinet Chatbot</p>
+            </div>
           </div>
-          <div>
-            <h3 className="text-sm font-bold text-red-400">What You Have Today</h3>
-            <p className="text-[10px] text-muted">AI Cabinet Chatbot</p>
-          </div>
+          <a
+            href={CURRENT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-[10px] text-muted hover:text-white transition-colors"
+          >
+            Open <ExternalLink className="w-2.5 h-2.5" />
+          </a>
         </div>
 
-        <div className="space-y-2 mb-4">
+        {/* Live embed */}
+        <div className="relative rounded-xl overflow-hidden border border-red-500/10 mb-4 bg-black">
+          <iframe
+            src={CURRENT_URL}
+            title="Current Bay State Chatbot"
+            className="w-full h-[220px] border-0 pointer-events-none"
+            loading="lazy"
+          />
+          <a
+            href={CURRENT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute inset-0 flex items-end justify-center pb-3"
+          >
+            <span className="bg-black/70 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5 hover:bg-black/90 transition-colors">
+              Tap to explore <ExternalLink className="w-3 h-3" />
+            </span>
+          </a>
+        </div>
+
+        <div className="space-y-2">
           {[
             'Customer asks a question, gets a text answer',
-            'No pricing information',
-            'No product comparison',
-            'No estimate generation',
-            'No lead capture',
-            'Requires backend server ($50-200/mo hosting)',
+            'No pricing — no product comparison',
+            'No estimate generation or lead capture',
+            'Requires $50-200/mo backend hosting',
             'Customer leaves with nothing in hand',
           ].map((item, i) => (
             <div key={i} className="flex items-start gap-2 text-sm">
@@ -41,15 +69,6 @@ export default function ScreenComparison() {
             </div>
           ))}
         </div>
-
-        <a
-          href={CURRENT_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-xs text-muted hover:text-white transition-colors"
-        >
-          See the current tool <ExternalLink className="w-3 h-3" />
-        </a>
       </div>
 
       {/* FUTURE — the configurator */}
@@ -58,23 +77,52 @@ export default function ScreenComparison() {
           WHAT WE BUILD
         </div>
 
-        <div className="flex items-center gap-2 mb-3">
-          <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center">
-            <Calculator className="w-4 h-4 text-gold" />
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center">
+              <Calculator className="w-4 h-4 text-gold" />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-gold">Bay State Kitchen Configurator</h3>
+              <p className="text-[10px] text-muted">Interactive Sales Tool</p>
+            </div>
           </div>
-          <div>
-            <h3 className="text-sm font-bold text-gold">Bay State Kitchen Configurator</h3>
-            <p className="text-[10px] text-muted">Interactive Sales Tool</p>
-          </div>
+          <a
+            href={MOCKUP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-[10px] text-gold hover:text-white transition-colors"
+          >
+            Open <ExternalLink className="w-2.5 h-2.5" />
+          </a>
         </div>
 
-        <div className="space-y-2 mb-4">
+        {/* Live embed */}
+        <div className="relative rounded-xl overflow-hidden border border-gold/20 mb-4 bg-black">
+          <iframe
+            src={MOCKUP_URL}
+            title="Bay State Kitchen Configurator Demo"
+            className="w-full h-[220px] border-0 pointer-events-none"
+            loading="lazy"
+          />
+          <a
+            href={MOCKUP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute inset-0 flex items-end justify-center pb-3"
+          >
+            <span className="bg-black/70 backdrop-blur-sm text-gold text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5 hover:bg-black/90 transition-colors">
+              Tap to explore the demo <ExternalLink className="w-3 h-3" />
+            </span>
+          </a>
+        </div>
+
+        <div className="space-y-2">
           {[
-            'Customer selects layout, cabinets, finishes interactively',
+            'Interactive layout, cabinet, and finish selection',
             'Live pricing across all 5 cabinet lines',
             'Side-by-side brand comparison with real costs',
-            '90% accurate estimate generated in minutes',
-            'PDF proposal they take home',
+            '90% accurate estimate in minutes — PDF included',
             'Every interaction is a captured lead',
             'Works on tablet, phone, and website',
             'Customer leaves ready to sign',
@@ -85,15 +133,6 @@ export default function ScreenComparison() {
             </div>
           ))}
         </div>
-
-        <a
-          href={MOCKUP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-gold/10 text-gold font-semibold text-sm px-4 py-2.5 rounded-lg hover:bg-gold/20 transition-colors"
-        >
-          See the configurator demo <ExternalLink className="w-3.5 h-3.5" />
-        </a>
       </div>
 
       {/* Bottom line */}
