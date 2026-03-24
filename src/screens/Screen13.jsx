@@ -13,7 +13,7 @@ export default function Screen13() {
 
   const crmPrice = customCRM ? 10000 : 6000
   const buildTotal = customCRM ? 36000 : 32000
-  const deposit = selected === 'A' ? '$15,000' : selected === 'B' ? `$${(16000 + (customCRM ? 4000 : 0)).toLocaleString()}` : '—'
+  const deposit = selected === 'A' ? '$15,000' : selected === 'B' ? (customCRM ? '$14,000' : '$12,000') : '—'
   const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
 
   const optionBLabel = customCRM
