@@ -30,7 +30,7 @@ export default function Screen4() {
     {
       icon: FileText,
       title: 'Your Estimate',
-      desc: "Complete preliminary estimate with itemized breakdown. PDF generation. 90% accuracy. The customer leaves with a number — not a 'we'll get back to you.'",
+      desc: "Complete preliminary estimate with itemized breakdown. Branded PDF generation. 92% accuracy. The customer leaves with a number — not a 'we'll get back to you.'",
     },
   ]
 

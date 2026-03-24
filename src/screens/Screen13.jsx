@@ -71,9 +71,12 @@ export default function Screen13() {
 
   return (
     <div className="max-w-lg mx-auto px-5">
-      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-center mb-6">
+      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-center mb-3">
         Let's Build This
       </h2>
+      <p className="text-center text-body text-[15px] mb-6">
+        Is there any reason we shouldn't start building this before your busy season?
+      </p>
 
       {/* Option selection */}
       <div className="space-y-3 mb-6">
@@ -91,7 +94,7 @@ export default function Screen13() {
             </div>
             <div>
               <h3 className="text-base font-bold">Option A — Kitchen Configurator: $30,000</h3>
-              <p className="text-sm text-muted mt-1">The tool that changes your showroom. Delivered in 3-4 weeks.</p>
+              <p className="text-sm text-muted mt-1">The tool that changes your showroom. Delivered in 22 business days.</p>
             </div>
           </div>
         </button>

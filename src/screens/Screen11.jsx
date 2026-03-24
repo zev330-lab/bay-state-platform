@@ -2,11 +2,11 @@ import { Clock, Zap } from 'lucide-react'
 
 export default function Screen11() {
   const timeline = [
-    { week: 'Week 1-4', label: 'Configurator MVP delivered and usable', highlight: true },
-    { week: 'Week 3-6', label: 'Zoho CRM rebuilt and operational', optionB: true },
-    { week: 'Week 5-10', label: 'New website live', optionB: true },
-    { week: 'Week 8-12', label: 'Lead pipeline flowing', optionB: true },
-    { week: 'Week 10-14', label: 'Marketing automation active', optionB: true },
+    { week: 'Days 1-22', label: 'Configurator MVP delivered and usable in your showroom', highlight: true },
+    { week: 'Days 12-30', label: 'Zoho CRM rebuilt and operational', optionB: true },
+    { week: 'Days 22-45', label: 'New website live — no WordPress, AI-search optimized', optionB: true },
+    { week: 'Days 35-55', label: 'Lead pipeline flowing into Zoho', optionB: true },
+    { week: 'Days 45-65', label: 'Marketing automation active', optionB: true },
   ]
 
   return (
@@ -16,7 +16,7 @@ export default function Screen11() {
       </h2>
 
       <p className="text-body text-[15px] leading-relaxed mb-6">
-        The configurator is the priority. We start building the moment the agreement is signed and your pricing data is in hand. Here's the delivery schedule:
+        The configurator is the priority. We start building the day the agreement is signed and your pricing data is in hand. Every day without it is revenue walking out the door.
       </p>
 
       {/* Timeline */}
@@ -55,10 +55,10 @@ export default function Screen11() {
           <Clock className="w-5 h-5 text-cyan-accent shrink-0 mt-0.5" />
           <div>
             <p className="text-body text-[15px] leading-relaxed">
-              My consulting practice operates on a limited-engagement model — I take on a small number of active projects at a time to ensure the quality you've seen in every deliverable so far.
+              I take on 2-3 active builds at a time. Bay State is the type of engagement I prioritize — clear vision, owner-involved, real business impact.
             </p>
             <p className="text-body text-[15px] leading-relaxed mt-3">
-              I'm currently in a position to make Bay State a priority engagement, but my availability is narrowing as other projects progress. <span className="text-white font-semibold">The sooner we start, the sooner the configurator is in your showroom closing deals.</span>
+              My current availability allows me to start immediately. <span className="text-white font-semibold">The sooner we begin, the sooner the configurator is closing deals in your showroom.</span>
             </p>
           </div>
         </div>
