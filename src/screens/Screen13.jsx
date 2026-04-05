@@ -1,7 +1,7 @@
 import { CreditCard, Phone, Mail } from 'lucide-react'
 
 // Replace with actual Stripe payment link when ready
-const STRIPE_LINK = '#STRIPE_LINK_PLACEHOLDER'
+const STRIPE_LINK = 'https://buy.stripe.com/test_5kQ4gB7Kx8U9ewbgC69R600'
 
 export default function Screen13() {
   return (
