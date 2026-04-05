@@ -1,77 +1,52 @@
-import { Wrench, BarChart3, Globe, Mail, Bot } from 'lucide-react'
+import { Shield, Check, Code2, Database, Globe, Link2 } from 'lucide-react'
 
 export default function Screen8() {
-  const phases = [
-    {
-      weeks: 'Weeks 1-4',
-      icon: Wrench,
-      title: 'Kitchen Configurator',
-      tag: 'Priority #1',
-      desc: 'Your highest priority, delivered first. 5 cabinet lines with live pricing, countertop toggles, estimate generator. Usable in showroom immediately.',
-      accent: 'border-gold/30 bg-gold/5',
-      tagColor: 'bg-gold/20 text-gold',
-    },
-    {
-      weeks: 'Weeks 3-6',
-      icon: BarChart3,
-      title: 'Zoho CRM Rebuild',
-      desc: 'Built from scratch on your new account. Your requirements, your workflows, your automation rules. Instant mobile notifications, lead scoring, response templates for your admin team. No new hires needed.',
-      accent: 'border-white/5',
-      tagColor: 'bg-cyan-accent/20 text-cyan-accent',
-    },
-    {
-      weeks: 'Weeks 5-10',
-      icon: Globe,
-      title: 'Website & AEO Build',
-      desc: 'Custom-coded, no WordPress, no middleware. Optimized for AI search (AEO), not just traditional SEO. Location-specific pages for every target town. B2B section for Kitchen Gallery. Showroom booking tool. The configurator integrates directly into the site.',
-      accent: 'border-white/5',
-      tagColor: 'bg-cyan-accent/20 text-cyan-accent',
-    },
-    {
-      weeks: 'Weeks 8-12',
-      icon: Mail,
-      title: 'Lead Scraping Pipeline',
-      desc: 'Exclusive homeowner and B2B leads delivered weekly into Zoho. Email outreach to permit holders, new buyers, designers, and contractors across your 13 target towns.',
-      accent: 'border-white/5',
-      tagColor: 'bg-cyan-accent/20 text-cyan-accent',
-    },
-    {
-      weeks: 'Weeks 10-14',
-      icon: Bot,
-      title: 'Marketing Automation',
-      desc: 'AI agents managing social media content and ad optimization. Content repository, automated posting, performance tracking, improvement suggestions.',
-      accent: 'border-white/5',
-      tagColor: 'bg-cyan-accent/20 text-cyan-accent',
-    },
+  const ownItems = [
+    { icon: Code2, label: 'Your GitHub repository with all source code' },
+    { icon: Database, label: 'Your Supabase database with all your data' },
+    { icon: Globe, label: 'Your Vercel account running the sites' },
+    { icon: Link2, label: 'Your domains pointing at your infrastructure' },
   ]
 
   return (
     <div className="max-w-lg mx-auto px-5">
-      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">
-        The Full Platform
-      </h2>
-      <p className="text-body text-[15px] mb-6">Delivered in Phases</p>
-
-      <div className="space-y-4">
-        {phases.map((p, i) => (
-          <div key={i} className={`bg-card rounded-xl p-4 border ${p.accent}`}>
-            <div className="flex items-center gap-2 mb-2">
-              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${p.tagColor}`}>
-                {p.weeks}
-              </span>
-              {p.tag && (
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-gold/20 text-gold">
-                  {p.tag}
-                </span>
-              )}
-            </div>
-            <div className="flex items-center gap-2 mb-2">
-              <p.icon className="w-4 h-4 text-cyan-accent shrink-0" />
-              <h3 className="text-sm font-bold">{p.title}</h3>
-            </div>
-            <p className="text-xs text-muted leading-snug">{p.desc}</p>
+      <div className="text-center mb-6">
+        <div className="inline-block mb-4">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-accent to-cyan-dark flex items-center justify-center mx-auto">
+            <Shield className="w-8 h-8 text-white" />
           </div>
-        ))}
+        </div>
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">
+          No Lock-In. You Own Everything.
+        </h2>
+      </div>
+
+      <div className="bg-card rounded-2xl p-5 border border-white/5 mb-4">
+        <p className="text-body text-[15px] leading-relaxed mb-5">
+          Regardless of which support option you choose, you own:
+        </p>
+        <div className="space-y-3">
+          {ownItems.map((item, i) => (
+            <div key={i} className="flex items-center gap-3">
+              <div className="shrink-0 w-9 h-9 rounded-lg bg-cyan-accent/10 flex items-center justify-center">
+                <item.icon className="w-4 h-4 text-cyan-accent" />
+              </div>
+              <span className="text-sm text-body font-medium">{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-card rounded-2xl p-5 border border-white/5 mb-4">
+        <p className="text-body text-[15px] leading-relaxed">
+          If you ever decide to manage everything yourself, you walk away with a fully functional platform. <span className="text-white font-semibold">No hostage situation. No proprietary systems you can't access.</span>
+        </p>
+      </div>
+
+      <div className="bg-gradient-to-br from-gold/10 to-transparent rounded-2xl p-5 border border-gold/20">
+        <p className="text-body text-[15px] leading-relaxed">
+          This is the opposite of WordPress agencies, Zoho consultants, and SaaS vendors who make you dependent on them. <span className="text-white font-semibold">We build it. You own it. Period.</span>
+        </p>
       </div>
     </div>
   )

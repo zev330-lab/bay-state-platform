@@ -1,75 +1,65 @@
-import { Ruler, LayoutGrid, Palette, Layers, Settings, FileText, Tablet } from 'lucide-react'
+import { FileText, Search, Share2, MapPin, Eye, Link2 } from 'lucide-react'
 
 export default function Screen4() {
-  const steps = [
-    {
-      icon: Ruler,
-      title: 'Kitchen Size & Layout',
-      desc: 'Customer selects their kitchen size or enters dimensions. Standard layouts (L-shape, U-shape, galley, island) with visual representations.',
-    },
-    {
-      icon: LayoutGrid,
-      title: 'Choose Your Cabinet Line',
-      desc: 'Side-by-side comparison of all 5 lines — MasterBrand, Fabuwood, StarMark, Europa, Mid-Continent. Customer instantly sees how the same kitchen costs $12,000 in one line vs. $25,000 in another.',
-    },
-    {
-      icon: Palette,
-      title: 'Door Style & Finish',
-      desc: 'Select door style, wood species, and finish. Price updates in real time. Painted vs. stained, shaker vs. raised panel — every choice reflected instantly.',
-    },
-    {
-      icon: Layers,
-      title: 'Countertops',
-      desc: 'Toggle between quartz, granite, marble. See exactly how switching from granite to Cambria quartz changes the total by $2,000.',
-    },
-    {
-      icon: Settings,
-      title: 'Fixtures & Finishes',
-      desc: 'Add faucets, tile, backsplash, hardware. Each selection updates the running total.',
-    },
+  const agents = [
     {
       icon: FileText,
-      title: 'Your Estimate',
-      desc: "Complete preliminary estimate with itemized breakdown. Branded PDF generation. 92% accuracy. The customer leaves with a number — not a 'we'll get back to you.'",
+      title: 'Content Agent',
+      desc: 'Writes blog posts (4+/mo), press releases (1-2/mo), and website content. You review and approve before anything publishes.',
+    },
+    {
+      icon: Search,
+      title: 'SEO & AEO Agent',
+      desc: 'Monitors your search rankings, analyzes competitors, optimizes your pages for both traditional search and AI search engines. Replaces your current SEO retainer.',
+    },
+    {
+      icon: Share2,
+      title: 'Social Media Agent',
+      desc: 'Connects to your Instagram, Facebook, LinkedIn, YouTube. Auto-generates posts from your content and project photos. You approve, it publishes. Replaces manual posting.',
+    },
+    {
+      icon: MapPin,
+      title: 'Google Business Profile Agent',
+      desc: 'Manages both GBP listings. Creates posts, monitors reviews, alerts you to new reviews to respond to, keeps your profiles active and optimized.',
+    },
+    {
+      icon: Eye,
+      title: 'Competitor Analysis Agent',
+      desc: 'Tracks what Feinmann, S+H Construction, NEDC, and other top Boston remodelers are doing online. Reports insights weekly. Identifies opportunities.',
+    },
+    {
+      icon: Link2,
+      title: 'Backlink & Authority Agent',
+      desc: 'Identifies backlink opportunities, drafts outreach emails, builds citation profiles. Replaces the link-building portion of your SEO retainer.',
     },
   ]
 
   return (
     <div className="max-w-lg mx-auto px-5">
-      <div className="mb-6">
-        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">
-          The Bay State Kitchen Configurator
-        </h2>
-        <p className="text-gold font-semibold text-lg">
-          From 3 weeks to 30 minutes.
-        </p>
-      </div>
+      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">
+        Your AI Agents
+      </h2>
+      <p className="text-body text-[15px] leading-relaxed mb-6">
+        6 agents working 24/7 to grow your business.
+      </p>
 
-      {/* Timeline */}
-      <div className="relative pl-8 mb-8">
-        <div className="absolute left-3 top-3 bottom-3 w-px bg-gradient-to-b from-cyan-accent via-cyan-accent/50 to-cyan-accent/10" />
-
-        {steps.map((s, i) => (
-          <div key={i} className="relative mb-6 last:mb-0">
-            <div className="absolute -left-5 top-1 w-6 h-6 rounded-full bg-navy border-2 border-cyan-accent flex items-center justify-center">
-              <span className="text-[10px] font-bold text-cyan-accent">{i + 1}</span>
+      <div className="space-y-3 mb-6">
+        {agents.map((a, i) => (
+          <div key={i} className="bg-card rounded-xl p-4 border border-white/5 flex gap-4">
+            <div className="shrink-0 w-10 h-10 rounded-lg bg-cyan-accent/10 flex items-center justify-center">
+              <a.icon className="w-5 h-5 text-cyan-accent" />
             </div>
-            <div className="bg-card rounded-xl p-4 border border-white/5">
-              <div className="flex items-center gap-2 mb-2">
-                <s.icon className="w-4 h-4 text-cyan-accent shrink-0" />
-                <h3 className="text-sm font-semibold">{s.title}</h3>
-              </div>
-              <p className="text-xs text-muted leading-snug">{s.desc}</p>
+            <div>
+              <h3 className="text-sm font-semibold mb-1">{a.title}</h3>
+              <p className="text-xs text-muted leading-snug">{a.desc}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Callout */}
-      <div className="bg-gradient-to-br from-gold/10 to-transparent rounded-2xl p-5 border border-gold/20 flex gap-3">
-        <Tablet className="w-5 h-5 text-gold shrink-0 mt-0.5" />
-        <p className="text-body text-sm leading-relaxed">
-          This tool works on a tablet in your showroom, on a phone at a customer's kitchen table, or on your website as a lead capture tool. <span className="text-white font-semibold">One build, everywhere.</span>
+      <div className="bg-gradient-to-br from-gold/10 to-transparent rounded-2xl p-5 border border-gold/20">
+        <p className="text-body text-[15px] leading-relaxed">
+          These 6 agents replace your entire current SEO and content vendor — <span className="text-gold font-semibold">saving you $3,000-5,000+/month.</span>
         </p>
       </div>
     </div>

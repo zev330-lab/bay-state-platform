@@ -3,7 +3,6 @@ import { ChevronRight } from 'lucide-react'
 export default function Screen1({ onNext }) {
   return (
     <div className="max-w-lg mx-auto px-5">
-      {/* Hero */}
       <div className="pt-12 pb-8 text-center">
         <div className="inline-block mb-4">
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-accent to-cyan-dark flex items-center justify-center mx-auto">
@@ -13,39 +12,30 @@ export default function Screen1({ onNext }) {
           </div>
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">
-          Your Vision, Built
+          Bay State Digital Platform
         </h1>
-        <p className="text-base text-cyan-accent font-medium mb-8">
-          A Digital Platform Strategy for Bay State Remodeling & Kitchen Gallery
+        <p className="text-base text-cyan-accent font-medium mb-2">
+          Built for Bay State Remodeling & Bay State Kitchen Gallery
         </p>
       </div>
 
-      {/* Letter */}
       <div className="bg-card rounded-2xl p-6 border border-white/5 mb-8">
         <p className="text-body text-[15px] leading-relaxed">
-          Zion — after our conversation, one thing became clear: you're not just thinking about leads or marketing. You're thinking about fundamentally changing how your business operates.
-        </p>
-        <p className="text-body text-[15px] leading-relaxed mt-4">
-          The kitchen configurator idea you described isn't just a nice tool — it's a game-changer that could redefine how independent showrooms compete.
-        </p>
-        <p className="text-body text-[15px] leading-relaxed mt-4">
-          This presentation lays out exactly how we bring it to life.
+          Based on our conversation on March 24th, here's exactly what we're building, how long it takes, what it costs, and how we get started.
         </p>
       </div>
 
-      {/* Prepared by */}
       <div className="text-center mb-10">
         <p className="text-sm text-muted">Prepared by</p>
         <p className="text-base font-semibold mt-1">Zev Steinmetz</p>
         <p className="text-sm text-cyan-accent">Technology Consulting</p>
       </div>
 
-      {/* CTA */}
       <button
         onClick={onNext}
         className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-accent to-cyan-dark text-white font-semibold py-4 rounded-xl hover:opacity-90 transition-opacity min-h-[52px]"
       >
-        See the Vision
+        Let's Go
         <ChevronRight className="w-5 h-5" />
       </button>
     </div>

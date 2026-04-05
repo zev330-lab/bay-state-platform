@@ -2,12 +2,9 @@ import { useState, useEffect, useCallback } from 'react'
 import Screen1 from './screens/Screen1'
 import Screen2 from './screens/Screen2'
 import Screen3 from './screens/Screen3'
-import ScreenComparison from './screens/ScreenComparison'
-import ScreenDemoVsReal from './screens/ScreenDemoVsReal'
 import Screen4 from './screens/Screen4'
 import Screen5 from './screens/Screen5'
 import Screen6 from './screens/Screen6'
-import ScreenCRM from './screens/ScreenCRM'
 import Screen7 from './screens/Screen7'
 import Screen8 from './screens/Screen8'
 import Screen9 from './screens/Screen9'
@@ -17,7 +14,7 @@ import Screen12 from './screens/Screen12'
 import Screen13 from './screens/Screen13'
 
 const screens = [
-  Screen1, Screen2, Screen3, ScreenComparison, ScreenDemoVsReal, Screen4, Screen5, Screen6, ScreenCRM, Screen7,
+  Screen1, Screen2, Screen3, Screen4, Screen5, Screen6, Screen7,
   Screen8, Screen9, Screen10, Screen11, Screen12, Screen13,
 ]
 

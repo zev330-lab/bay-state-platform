@@ -1,67 +1,81 @@
-import { Clock, Zap } from 'lucide-react'
+import { TrendingDown, TrendingUp } from 'lucide-react'
 
 export default function Screen11() {
-  const timeline = [
-    { week: 'Days 1-22', label: 'Configurator MVP delivered and usable in your showroom', highlight: true },
-    { week: 'Days 12-30', label: 'Zoho CRM rebuilt and operational', optionB: true },
-    { week: 'Days 22-45', label: 'New website live — no WordPress, AI-search optimized', optionB: true },
-    { week: 'Days 35-55', label: 'Lead pipeline flowing into Zoho', optionB: true },
-    { week: 'Days 45-65', label: 'Marketing automation active', optionB: true },
+  const marketCost = [
+    ['Two custom websites', '$30,000 - $50,000'],
+    ['AI chatbot with product knowledge', '$5,000 - $15,000'],
+    ['6 AI marketing agents (or human equivalent)', '$60,000+/year'],
+    ['Lead scraping pipeline', '$3,000 - $5,000 + $12,000/year'],
+    ['Customer nurture system', '$5,000 - $10,000 + $6,000/year'],
+  ]
+
+  const ourCost = [
+    ['Full platform build', '$21,000'],
+    ['Year 1 monthly service (Option A)', '$22,000'],
   ]
 
   return (
     <div className="max-w-lg mx-auto px-5">
-      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4">
-        Let's Talk Timeline
+      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-6">
+        What This Is Worth
       </h2>
 
-      <p className="text-body text-[15px] leading-relaxed mb-6">
-        The configurator is the priority. We start building the day the agreement is signed and your pricing data is in hand. Every day without it is revenue walking out the door.
-      </p>
-
-      {/* Timeline */}
-      <div className="relative pl-8 mb-8">
-        <div className="absolute left-3 top-2 bottom-2 w-px bg-gradient-to-b from-gold via-cyan-accent to-cyan-accent/20" />
-
-        {timeline.map((t, i) => (
-          <div key={i} className="relative mb-5 last:mb-0">
-            <div className={`absolute -left-5 top-1.5 w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-              t.highlight ? 'border-gold bg-gold/20' : 'border-cyan-accent bg-navy'
-            }`}>
-              {t.highlight && <Zap className="w-2.5 h-2.5 text-gold" />}
+      {/* Market rates */}
+      <div className="bg-card rounded-2xl p-5 border border-red-500/15 mb-4">
+        <div className="flex items-center gap-2 mb-4">
+          <TrendingDown className="w-5 h-5 text-red-400" />
+          <h3 className="text-sm font-bold text-red-400">Building This Traditionally</h3>
+        </div>
+        <div className="space-y-2">
+          {marketCost.map(([item, price], i) => (
+            <div key={i} className="flex justify-between items-start py-2 border-b border-white/5 last:border-0">
+              <span className="text-sm text-muted flex-1 mr-3">{item}</span>
+              <span className="text-sm font-medium text-white shrink-0">{price}</span>
             </div>
-            <div className={`rounded-xl p-3 ${
-              t.highlight ? 'bg-gold/10 border border-gold/20' : 'bg-card border border-white/5'
-            }`}>
-              <div className="flex items-center gap-2 mb-1">
-                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                  t.highlight ? 'bg-gold/20 text-gold' : 'bg-cyan-accent/10 text-cyan-accent'
-                }`}>
-                  {t.week}
-                </span>
-                {t.optionB && (
-                  <span className="text-[10px] text-muted">(Option B)</span>
-                )}
-              </div>
-              <p className="text-sm text-body">{t.label}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Availability */}
-      <div className="bg-card rounded-2xl p-5 border border-white/5">
-        <div className="flex items-start gap-3">
-          <Clock className="w-5 h-5 text-cyan-accent shrink-0 mt-0.5" />
-          <div>
-            <p className="text-body text-[15px] leading-relaxed">
-              I take on 2-3 active builds at a time. Bay State is the type of engagement I prioritize — clear vision, owner-involved, real business impact.
-            </p>
-            <p className="text-body text-[15px] leading-relaxed mt-3">
-              My current availability allows me to start immediately. <span className="text-white font-semibold">The sooner we begin, the sooner the configurator is closing deals in your showroom.</span>
-            </p>
+          ))}
+        </div>
+        <div className="bg-red-500/10 rounded-xl p-4 border border-red-500/15 mt-4">
+          <div className="flex justify-between items-center">
+            <span className="text-sm font-bold text-white">Total Year 1</span>
+            <span className="text-xl font-bold text-red-400">$103,000 - $140,000+</span>
           </div>
         </div>
+      </div>
+
+      {/* Our pricing */}
+      <div className="bg-card rounded-2xl p-5 border-2 border-gold mb-4">
+        <div className="flex items-center gap-2 mb-4">
+          <TrendingUp className="w-5 h-5 text-green-400" />
+          <h3 className="text-sm font-bold text-green-400">With Us</h3>
+        </div>
+        <div className="space-y-2">
+          {ourCost.map(([item, price], i) => (
+            <div key={i} className="flex justify-between items-start py-2 border-b border-white/5 last:border-0">
+              <span className="text-sm text-body flex-1 mr-3">{item}</span>
+              <span className="text-sm font-medium text-white shrink-0">{price}</span>
+            </div>
+          ))}
+        </div>
+        <div className="bg-gold/10 rounded-xl p-4 border border-gold/20 mt-4">
+          <div className="flex justify-between items-center">
+            <span className="text-sm font-bold text-white">Total Year 1</span>
+            <span className="text-xl font-bold text-gold">$43,000</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Savings */}
+      <div className="bg-gradient-to-br from-green-500/10 to-transparent rounded-2xl p-6 border border-green-500/20 mb-4">
+        <p className="text-center">
+          <span className="text-3xl font-bold text-green-400">$60,000 - $97,000</span>
+        </p>
+        <p className="text-center text-sm text-muted mt-2">saved in Year 1 alone</p>
+      </div>
+
+      <div className="bg-white/5 rounded-xl p-4 border border-white/5">
+        <p className="text-sm text-muted leading-relaxed">
+          And you own everything at the end. <span className="text-white font-semibold">Try getting that from a WordPress agency.</span>
+        </p>
       </div>
     </div>
   )

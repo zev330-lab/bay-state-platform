@@ -1,39 +1,49 @@
-import { Wrench, Globe, BarChart3, Mail, Bot } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export default function Screen6() {
-  const components = [
-    { icon: Wrench, label: 'Kitchen Configurator', desc: 'Your proprietary sales acceleration tool', accent: 'text-gold' },
-    { icon: Globe, label: 'Website & AEO', desc: 'Custom-coded, AI-search optimized, no WordPress', accent: 'text-cyan-accent' },
-    { icon: BarChart3, label: 'Zoho CRM Rebuild', desc: 'Built from scratch to your exact requirements', accent: 'text-cyan-accent' },
-    { icon: Mail, label: 'Lead Scraping Pipeline', desc: 'Exclusive leads delivered weekly into Zoho', accent: 'text-cyan-accent' },
-    { icon: Bot, label: 'Marketing Automation', desc: 'AI agents managing social media and ad optimization', accent: 'text-cyan-accent' },
+  const replacements = [
+    ['WordPress hosting & maintenance', 'Custom site — you own it, no plugin fees'],
+    ['SEO & web development retainer', 'SEO/AEO agent + we own the code'],
+    ['Google Business Profile management', 'GBP agent — automated'],
+    ['Citation & link building (2-4/mo)', 'Backlink agent — automated'],
+    ['Content & PR (blog posts + releases)', 'Content agent — 4+ blogs, 1-2 PRs/mo'],
+    ['Social media posting & management', 'Social agent — you approve, it posts'],
+    ['AI/LLM strategy', 'This IS the AI strategy'],
   ]
 
   return (
     <div className="max-w-lg mx-auto px-5">
-      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4">
-        The Complete Digital Platform
+      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-6">
+        What This Replaces
       </h2>
 
-      <p className="text-body text-[15px] leading-relaxed mb-3">
-        The configurator is the crown jewel. But to truly transform how Bay State operates, it needs to live inside a complete digital ecosystem — a new website built for AI search, a CRM that actually works the way you want it to, a lead pipeline feeding your sales team, and marketing that runs itself.
-      </p>
-      <p className="text-body text-[15px] leading-relaxed mb-6">
-        You told me you're done with WordPress. You're starting your Zoho from scratch. You want AI handling your social media and ad optimization. Here's the plan to make all of that happen — with the configurator as the centerpiece.
-      </p>
-
-      <div className="space-y-3">
-        {components.map((c, i) => (
-          <div key={i} className={`bg-card rounded-xl p-4 border ${i === 0 ? 'border-gold/30 bg-gradient-to-r from-gold/5 to-transparent' : 'border-white/5'} flex gap-4`}>
-            <div className={`shrink-0 w-10 h-10 rounded-lg ${i === 0 ? 'bg-gold/10' : 'bg-white/5'} flex items-center justify-center`}>
-              <c.icon className={`w-5 h-5 ${c.accent}`} />
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold mb-0.5">{c.label}</h3>
-              <p className="text-xs text-muted">{c.desc}</p>
+      <div className="space-y-3 mb-6">
+        {replacements.map(([current, replacement], i) => (
+          <div key={i} className="bg-card rounded-xl border border-white/5 overflow-hidden">
+            <div className="grid grid-cols-2 divide-x divide-white/5">
+              <div className="px-3 py-3">
+                <p className="text-[10px] text-red-400 font-medium uppercase mb-1">Now</p>
+                <p className="text-xs text-muted leading-snug">{current}</p>
+              </div>
+              <div className="px-3 py-3">
+                <p className="text-[10px] text-green-400 font-medium uppercase mb-1">Replaced By</p>
+                <p className="text-xs text-body leading-snug">{replacement}</p>
+              </div>
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="bg-white/5 rounded-xl p-4 border border-white/5 mb-4">
+        <p className="text-sm text-muted leading-relaxed">
+          The only thing that stays: <span className="text-white font-semibold">your monthly photo/video shoots.</span> We distribute what they produce.
+        </p>
+      </div>
+
+      <div className="bg-gradient-to-br from-gold/10 to-transparent rounded-2xl p-5 border border-gold/20">
+        <p className="text-body text-[15px] leading-relaxed">
+          Your current marketing vendors cost <span className="text-red-400 font-semibold">$5,000+/month.</span> <span className="text-white font-semibold">This replaces all of them.</span>
+        </p>
       </div>
     </div>
   )

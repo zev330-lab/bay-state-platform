@@ -1,85 +1,93 @@
+import { Check, Star } from 'lucide-react'
+
 export default function Screen10() {
   return (
     <div className="max-w-lg mx-auto px-5">
-      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-6">
-        Your Investment Over Time
+      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2 text-center">
+        Your Investment
       </h2>
+      <p className="text-center text-body text-[15px] mb-6">
+        Project Build: <span className="text-white font-bold text-lg">$21,000</span>
+      </p>
 
-      {/* Mobile-friendly card table */}
-      <div className="space-y-3 mb-6">
-        {/* Current Google Ads */}
-        <div className="bg-card rounded-xl p-4 border border-white/5">
-          <h3 className="text-sm font-semibold mb-3 text-red-400">Current Google Ads</h3>
-          <div className="grid grid-cols-3 gap-2 text-center">
+      {/* Milestone payments */}
+      <div className="bg-card rounded-2xl p-5 border border-white/5 mb-6">
+        <h3 className="text-sm font-bold text-muted uppercase tracking-wide mb-4">Three Milestone Payments</h3>
+        <div className="space-y-3">
+          <div className="flex justify-between items-center py-2 border-b border-white/5">
             <div>
-              <p className="text-[10px] text-muted uppercase mb-1">Year 1</p>
-              <p className="text-sm font-bold">$60,000</p>
+              <p className="text-sm font-medium">Deposit — Project Kickoff</p>
+              <p className="text-xs text-muted">Today</p>
             </div>
-            <div>
-              <p className="text-[10px] text-muted uppercase mb-1">Year 2</p>
-              <p className="text-sm font-bold">$60,000</p>
-            </div>
-            <div>
-              <p className="text-[10px] text-muted uppercase mb-1">Year 3</p>
-              <p className="text-sm font-bold">$60,000</p>
-            </div>
+            <span className="text-sm font-bold">$7,000</span>
           </div>
-        </div>
-
-        {/* Option A */}
-        <div className="bg-card rounded-xl p-4 border border-white/5">
-          <h3 className="text-sm font-semibold mb-3 text-cyan-accent">Option A (Configurator)</h3>
-          <div className="grid grid-cols-3 gap-2 text-center">
+          <div className="flex justify-between items-center py-2 border-b border-white/5">
             <div>
-              <p className="text-[10px] text-muted uppercase mb-1">Year 1</p>
-              <p className="text-sm font-bold">$30,000</p>
+              <p className="text-sm font-medium">Websites Live</p>
+              <p className="text-xs text-muted">Week 2-3</p>
             </div>
-            <div>
-              <p className="text-[10px] text-muted uppercase mb-1">Year 2</p>
-              <p className="text-[11px] font-medium text-muted">$500/mo</p>
-              <p className="text-[9px] text-muted/70">optional</p>
-            </div>
-            <div>
-              <p className="text-[10px] text-muted uppercase mb-1">Year 3</p>
-              <p className="text-[11px] font-medium text-muted">$500/mo</p>
-              <p className="text-[9px] text-muted/70">optional</p>
-            </div>
+            <span className="text-sm font-bold">$7,000</span>
           </div>
-        </div>
-
-        {/* Option B */}
-        <div className="bg-card rounded-xl p-4 border border-gold/30">
-          <h3 className="text-sm font-semibold mb-3 text-gold">Option B (Full Platform)</h3>
-          <div className="grid grid-cols-3 gap-2 text-center">
+          <div className="flex justify-between items-center py-2">
             <div>
-              <p className="text-[10px] text-muted uppercase mb-1">Year 1</p>
-              <p className="text-sm font-bold">$68,000</p>
+              <p className="text-sm font-medium">Full System Operational</p>
+              <p className="text-xs text-muted">Week 5</p>
             </div>
-            <div>
-              <p className="text-[10px] text-muted uppercase mb-1">Year 2</p>
-              <p className="text-sm font-bold">$48,000</p>
-            </div>
-            <div>
-              <p className="text-[10px] text-muted uppercase mb-1">Year 3</p>
-              <p className="text-sm font-bold">$48,000</p>
-            </div>
+            <span className="text-sm font-bold">$7,000</span>
           </div>
         </div>
       </div>
 
-      {/* Key insights */}
-      <div className="bg-card rounded-2xl p-5 border border-white/5 mb-4">
+      {/* Option A */}
+      <div className="bg-card rounded-2xl p-5 border-2 border-gold relative mb-4">
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-navy text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+          <Star className="w-3 h-3" /> RECOMMENDED
+        </div>
+        <h3 className="text-lg font-bold mt-2 mb-1">Option A — Full Service</h3>
+        <p className="text-2xl font-bold text-gold mb-3">$2,000/month</p>
+        <p className="text-sm text-muted mb-4 italic">We run everything. You focus on running your business.</p>
+        <div className="space-y-2">
+          {[
+            'We host, manage, and operate the entire platform',
+            'All API and infrastructure costs included',
+            'Weekly agent review, content approval, and performance monitoring',
+            'Up to 4 hours/month of changes, updates, or new pages included',
+            'Additional work beyond 4 hours: $250/hour',
+            'You still own all the code and data — always',
+          ].map((item, i) => (
+            <div key={i} className="flex items-start gap-2 text-sm">
+              <Check className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+              <span className="text-body">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Option B */}
+      <div className="bg-card rounded-2xl p-5 border border-white/5 mb-6">
+        <h3 className="text-lg font-bold mb-1">Option B — Self-Managed</h3>
+        <p className="text-2xl font-bold text-cyan-accent mb-3">$500/month + $250/hour</p>
+        <p className="text-sm text-muted mb-4 italic">You run the day-to-day. We're here when you need us.</p>
+        <div className="space-y-2">
+          {[
+            'You manage the platform using your own GitHub/Vercel/Supabase',
+            '$500/month covers infrastructure costs and agent hosting',
+            'Changes, updates, new features billed at $250/hour',
+            '2-hour minimum per request ($500 minimum)',
+            'Full access to codebase and documentation',
+            'You still own everything — same as Option A',
+          ].map((item, i) => (
+            <div key={i} className="flex items-start gap-2 text-sm">
+              <Check className="w-3.5 h-3.5 text-cyan-accent shrink-0 mt-0.5" />
+              <span className="text-body">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-br from-cyan-accent/10 to-transparent rounded-2xl p-5 border border-cyan-accent/20">
         <p className="text-body text-[15px] leading-relaxed">
-          Option B costs slightly more in Year 1 but delivers <span className="text-white font-semibold">5 major systems</span>. By Year 2, you're saving <span className="text-green-400 font-semibold">$12,000/year</span> compared to Google Ads alone — and you own every piece of the infrastructure.
-        </p>
-        <p className="text-body text-[15px] leading-relaxed mt-3">
-          Over 3 years, Option B saves <span className="text-gold font-semibold">$24,000</span> while delivering dramatically more deals through a system that compounds.
-        </p>
-      </div>
-
-      <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-        <p className="text-sm text-muted leading-relaxed">
-          If you choose Option A, you still spend $60,000 on Google Ads. The configurator helps you close more of those leads, but you're still renting every lead from Google.
+          Either way — <span className="text-white font-semibold">you own the code, the data, and the infrastructure. No lock-in.</span>
         </p>
       </div>
     </div>

@@ -1,69 +1,49 @@
-import { CreditCard, FileText } from 'lucide-react'
+import { ClipboardList, Check } from 'lucide-react'
 
 export default function Screen12() {
+  const items = [
+    'Domain access (baystateremodeling.com, baystatekitchengallery.com, houseremodeling.ai)',
+    'WordPress admin logins (so we can scrape all your content)',
+    'Social media account access',
+    'Google Business Profile admin access',
+    'Google Ads account access',
+    'Your SEO vendor\'s full scope report',
+    'Customer database export from Zoho (5 years)',
+    'Brand assets (logos, team photos, showroom photos)',
+  ]
+
   return (
     <div className="max-w-lg mx-auto px-5">
-      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-6">
-        How It Works
+      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4">
+        What We Need From You
       </h2>
 
-      {/* Option A */}
-      <div className="bg-card rounded-2xl p-5 border border-white/5 mb-4">
-        <h3 className="text-sm font-bold text-cyan-accent mb-4 uppercase tracking-wide">
-          Option A Payment Schedule
-        </h3>
-        <div className="space-y-3">
-          <div className="flex justify-between items-center py-2 border-b border-white/5">
-            <div>
-              <p className="text-sm font-medium">Contract signed</p>
-            </div>
-            <span className="text-sm font-bold">$15,000</span>
-          </div>
-          <div className="flex justify-between items-center py-2 border-b border-white/5">
-            <div>
-              <p className="text-sm font-medium">Configurator delivered</p>
-              <p className="text-xs text-muted">Week 3-4</p>
-            </div>
-            <span className="text-sm font-bold">$15,000</span>
-          </div>
-          <div className="flex justify-between items-center pt-2">
-            <span className="text-sm font-bold">Total</span>
-            <span className="text-lg font-bold text-cyan-accent">$30,000</span>
-          </div>
-        </div>
-      </div>
+      <p className="text-body text-[15px] leading-relaxed mb-6">
+        To hit the 5-week timeline, we need a few things from you within the first week:
+      </p>
 
-      {/* Option B */}
-      <div className="bg-card rounded-2xl p-5 border-2 border-gold mb-6">
-        <h3 className="text-sm font-bold text-gold mb-4 uppercase tracking-wide">
-          Option B Payment Schedule
-        </h3>
+      <div className="bg-card rounded-2xl p-5 border border-white/5 mb-6">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl bg-cyan-accent/10 flex items-center justify-center">
+            <ClipboardList className="w-5 h-5 text-cyan-accent" />
+          </div>
+          <h3 className="text-sm font-bold">Intake Checklist</h3>
+        </div>
         <div className="space-y-3">
-          {[
-            { when: 'Contract signed', amount: '$16,000', what: 'Website + CRM + Configurator build begins immediately' },
-            { when: 'Day 22', amount: '$8,000', what: 'Configurator delivered + CRM live' },
-            { when: 'Day 45', amount: '$5,000', what: 'Website live + lead pipeline active' },
-            { when: 'Day 65', amount: '$3,000', what: 'Marketing automation complete — full platform operational' },
-            { when: 'Month 4+', amount: '$4,000/mo', what: 'Full platform retainer begins' },
-          ].map((row, i) => (
-            <div key={i} className="py-2 border-b border-white/5 last:border-0">
-              <div className="flex justify-between items-start">
-                <div className="flex-1 mr-3">
-                  <p className="text-sm font-medium">{row.when}</p>
-                  <p className="text-xs text-muted mt-0.5">{row.what}</p>
-                </div>
-                <span className="text-sm font-bold shrink-0">{row.amount}</span>
+          {items.map((item, i) => (
+            <div key={i} className="flex items-start gap-3 text-sm">
+              <div className="shrink-0 w-5 h-5 rounded border border-white/20 flex items-center justify-center mt-0.5">
+                <span className="text-[10px] text-muted font-bold">{i + 1}</span>
               </div>
+              <span className="text-body leading-snug">{item}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Onboarding note */}
-      <div className="bg-gradient-to-br from-cyan-accent/10 to-transparent rounded-2xl p-5 border border-cyan-accent/20 flex gap-3">
-        <FileText className="w-5 h-5 text-cyan-accent shrink-0 mt-0.5" />
-        <p className="text-body text-sm leading-relaxed">
-          Once you sign, we'll send a brief onboarding document with exactly what we need from you to get started — primarily your dealer price sheets for the 5 cabinet lines and your countertop pricing from First Class Marble. <span className="text-white font-semibold">That's it. We handle everything else.</span>
+      <div className="bg-gradient-to-br from-cyan-accent/10 to-transparent rounded-2xl p-5 border border-cyan-accent/20">
+        <p className="text-body text-[15px] leading-relaxed">
+          We'll send you a detailed checklist — <span className="text-white font-semibold">most items take 5 minutes each.</span>
         </p>
       </div>
     </div>
